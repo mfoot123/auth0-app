@@ -9,9 +9,12 @@ export default withPageAuthRequired(async function Admin(){
     if (role !== "Admin") redirect('/')
 
     return (
-        <main>
-            Admin <br />
-            <a href="/api/auth/logout">Logout</a>
-        </main>
+    <main className="dashboard-page">
+        <div className="dashboard-container">
+            <h1>Admin Dashboard</h1>
+            <p>Welcome, {user.user.name}!</p>
+            <a href="/api/auth/logout" className="logout-button">Logout</a>
+        </div>
+    </main>
     );
 }, { returnTo: "/" })
